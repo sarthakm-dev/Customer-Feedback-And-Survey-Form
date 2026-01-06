@@ -25,7 +25,9 @@ body {
     gap: 10px;
     align-items: center;
 }
-
+.text-label {
+    font-weight: 600
+}
 .review-container {
     display: flex;
     flex-direction: column;
@@ -47,7 +49,9 @@ body {
     
 }
 
-
+.radio-label {
+    font-weight: 600;
+}
 .review-section {
     max-width: 600px;
     margin: auto;

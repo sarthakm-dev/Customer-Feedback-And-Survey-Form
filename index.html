@@ -13,15 +13,15 @@
         <h1>Customer Feedback And Survey Form</h2>
             <form id="form-container">
                 <div id="product-details">
-                    <label for="orderNumber">Order Number (format ORD-XXXXXX):</label>
+                    <label for="orderNumber" class="text-label">Order Number (format ORD-XXXXXX):</label>
                     <input type="text" id="pName" name="pName" required>
-                    <label for="email">Email:</label>
-                    <input type="text" id="emaill" name="pSKU" required>
-                    <label for="purDate">Purchase Date:</label>
+                    <label for="email" class="text-label">Email:</label>
+                    <input type="text" id="email" name="email" required>    
+                    <label for="purchaseDate" class="text-label">Purchase Date:</label>
                     <input type="date" id="purchaseDate" name="purchaseDate" required >
                 </div>
                 <div class="radio-container">
-                    <label for="shoppingMethod">Shopping Method</label>
+                    <label for="shoppingMethod" class="radio-label">Shopping Method</label>
                     <div class="radio-content">
                         <span><input type="radio" name="method" id="str1" value="1" ><label for="str5">Online
                                 (Website)</label></span>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="radio-container">
-                    <label for="deliveryExperience">Delivery Experience:</label>
+                    <label for="deliveryExperience" class="radio-label">Delivery Experience:</label>
                     <div class="radio-content">
                         <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Excellent
                                 (on-time, professional)</label></span>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="radio-container">
-                    <label for="packageContentsMatch">Package Contents Match:</label>
+                    <label for="packageContentsMatch" class="radio-label">Package Contents Match:</label>
                     <div class="radio-content">
                         <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Yes,
                                 Everything Correct</label></span>
@@ -159,7 +159,7 @@
                     </div>
                 </div>
                 <div class="radio-container">
-                    <label for="supportContacted">Support Contacted</label>
+                    <label for="supportContacted" class="radio-label">Support Contacted</label>
                     <div class="supportContacted">
                         <span><input type="radio" name="experience" id="str5" value="5"><label
                                 for="str5">Yes</label></span>
@@ -189,7 +189,7 @@
                     </div>
                 </div>
                 <div class="radio-container">
-                    <label for="packageContentsMatch">Recommend To Friends</label>
+                    <label for="packageContentsMatch" class="radio-label">Recommend To Friends</label>
                     <div class="radio-content">
                         <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Definitely
                                 Yes</label></span>
@@ -203,11 +203,11 @@
                                 No</label></span>
                     </div>
                 </div>
-                <label for="whatDidYouLike">What Did You Like</label>
+                <label for="whatDidYouLike" class="text-label">What Did You Like</label>
                 <textarea maxlength="300">Enter Your Text Here...</textarea>
-                <label for="whatToImprove">What To Improve</label>
+                <label for="whatToImprove" class="text-label">What To Improve</label>
                 <textarea maxlength="300">Enter Your Text Here...</textarea>
-                <label for="additionalComments">Additional Comments</label>
+                <label for="additionalComments" class="text-label">Additional Comments</label>
                 <textarea maxlength="200">Enter Your Text Here...</textarea>
                 <div>
                     <label for="participateInMonthlyReview">Participate In Monthly Review</label>
