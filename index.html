@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer feedback And Survey Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="main-container">
+        <h1>Customer Feedback And Survey Form</h2>
+            <form id="form-container">
+                <div id="product-details">
+                    <label for="orderNumber">Order Number (format ORD-XXXXXX):</label>
+                    <input type="text" id="pName" name="pName" required>
+                    <label for="email">Email:</label>
+                    <input type="text" id="emaill" name="pSKU" required>
+                    <label for="purDate">Purchase Date:</label>
+                    <input type="date" id="purchaseDate" name="purchaseDate" required >
+                </div>
+                <div class="radio-container">
+                    <label for="shoppingMethod">Shopping Method</label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="method" id="str1" value="1" ><label for="str5">Online
+                                (Website)</label></span>
+                        <span><input type="radio" name="method" id="str2" value="2"><label for="str4">Offline
+                                (Stores)</label></span>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="productQuality">
+                    <p>Product Quality <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="rating-group" data-category="matchesDescription">
+                    <p>Matches Description <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="durability">
+                    <p>Durability <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="valueForMoney">
+                    <p>Value For Money <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="websitesEaseOfUse">
+                    <p>Websites Ease Of Use <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="productSearch">
+                    <p>Product Search <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="checkoutProcess">
+                    <p>Checkout Process <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+
+                <div class="rating-group" data-category="paymentOptions">
+                    <p>Payment Options <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="deliverySpeed">
+                    <p>Delivery Speed <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="radio-container">
+                    <label for="deliveryExperience">Delivery Experience:</label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Excellent
+                                (on-time, professional)</label></span>
+                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Good
+                                (minor-issues, resolved)</label></span>
+                        <span><input type="radio" name="experience" id="str3" value="3"><label for="str3">Average (some
+                                delays/issues)</label></span>
+                        <span><input type="radio" name="experience" id="str2" value="2"><label
+                                for="str2">Poor</label></span>
+
+                    </div>
+                </div>
+                <div class="rating-group" data-category="packagingQuality">
+                    <p>Packaging Quality <span class="required">*</span></p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="radio-container">
+                    <label for="packageContentsMatch">Package Contents Match:</label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Yes,
+                                Everything Correct</label></span>
+                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Missing
+                                Items</label></span>
+                        <span><input type="radio" name="experience" id="str3" value="3"><label for="str3">Wrong
+                                Items</label></span>
+                        <span><input type="radio" name="experience" id="str2" value="2"><label for="str2">Damaged
+                                Items</label></span>
+                    </div>
+                </div>
+                <div class="radio-container">
+                    <label for="supportContacted">Support Contacted</label>
+                    <div class="supportContacted">
+                        <span><input type="radio" name="experience" id="str5" value="5"><label
+                                for="str5">Yes</label></span>
+                        <span><input type="radio" name="experience" id="str4" value="4"><label
+                                for="str4">No</label></span>
+
+                    </div>
+                </div>
+                <div class="rating-group" data-category="supportResponsiveness">
+                    <p>Support Responsiveness </p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="rating-group" data-category="checkoutProcess">
+                    <p>Support Helpfulness</p>
+                    <div class="box-rating">
+                        <div class="box" data-value="1">1</div>
+                        <div class="box" data-value="2">2</div>
+                        <div class="box" data-value="3">3</div>
+                        <div class="box" data-value="4">4</div>
+                        <div class="box" data-value="5">5</div>
+                    </div>
+                </div>
+                <div class="radio-container">
+                    <label for="packageContentsMatch">Recommend To Friends</label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Definitely
+                                Yes</label></span>
+                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Probably
+                                Yes</label></span>
+                        <span><input type="radio" name="experience" id="str3" value="3"><label
+                                for="str3">Unsure</label></span>
+                        <span><input type="radio" name="experience" id="str2" value="2"><label for="str2">Probably
+                                No</label></span>
+                        <span><input type="radio" name="experience" id="str1" value="1"><label for="str1">Definitely
+                                No</label></span>
+                    </div>
+                </div>
+                <label for="whatDidYouLike">What Did You Like</label>
+                <textarea maxlength="300">Enter Your Text Here...</textarea>
+                <label for="whatToImprove">What To Improve</label>
+                <textarea maxlength="300">Enter Your Text Here...</textarea>
+                <label for="additionalComments">Additional Comments</label>
+                <textarea maxlength="200">Enter Your Text Here...</textarea>
+                <div>
+                    <label for="participateInMonthlyReview">Participate In Monthly Review</label>
+                    <input type="checkbox" id="participateInMonthlyReview" name="review" value="Yes">
+                </div>
+
+                <button id="submit">Submit</button>
+        </form>
+    </div>
+
+
+<script src="script.js"></script>
+</body>
+
+</html>
