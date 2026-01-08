@@ -56,8 +56,16 @@ function formatRequired(input){
         return true;
     }
 }
+function isValidEmail(email) {
+  
+  const emailRegex = /^\S+@\S+\.\S+$/;
+  return emailRegex.test(email);
+}
+
+       // false (missing domain name part)
+
 function validateRequired(input) {
-    if (!input.value.trim()) {
+    if (!isValidEmail(input.value.trim())) {
         input.classList.add('invalid');
         input.nextElementSibling.style.visibility = "visible";
         return false;
