@@ -57,12 +57,10 @@ function formatRequired(input){
     }
 }
 function isValidEmail(email) {
-  
   const emailRegex = /^\S+@\S+\.\S+$/;
   return emailRegex.test(email);
 }
 
-       // false (missing domain name part)
 
 function validateRequired(input) {
     if (!isValidEmail(input.value.trim())) {

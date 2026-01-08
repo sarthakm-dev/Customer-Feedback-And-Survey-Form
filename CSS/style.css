@@ -16,22 +16,23 @@ body {
     font-weight: 100;
     background: #fff6e8;
     padding: 16px;
-    width: 480px;
+  
     text-align: center;
     border-radius: 10px;
     letter-spacing: 0.5px;
 }
 
-.form-wrapper{
+.form-wrapper {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
 }
+
 #form-container {
     display: flex;
     background: #fff6e8;
     flex-direction: column;
-    width: 480px;
+   
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
     margin: 0 auto;
     gap: 9px;
@@ -42,39 +43,49 @@ body {
 
 #product-details {
     display: grid;
-    
+
     gap: 3px;
     margin-bottom: 5px;
 }
+
 .personal-details {
-    display: flex;
-    width: 480px;
-    gap: 1px;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
     margin-bottom: 1px;
 }
+
 .order-details {
     
     gap: 2px;
 }
+
 #product-name {
-    width: 220px;
+   
     height: 25px;
     margin-top: 5px;
 }
-.order-details input.invalid .error{
+
+.order-details input{
+    width: 100%;
+    box-sizing: border-box;
+}
+.order-details input.invalid .error {
     display: block;
 }
+
 #email {
-    width: 220px;
+ 
     height: 25px;
     margin-top: 5px;
 }
+
 #purchase-date {
-    width: 120px;
+    width: 160px;
     height: 25px;
 }
+
 .text-label {
     font-weight: 600;
     gap: 1px;
@@ -167,6 +178,7 @@ body {
     font-size: 14px;
     margin-bottom: 6px;
 }
+
 .star-item {
     display: flex;
     flex-direction: column;
@@ -176,18 +188,19 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+
 .star {
     width: 50px;
     height: 50px;
 
- 
+
     border-radius: 1px;
     display: flex;
     align-items: center;
     font-size: 4.5rem;
     justify-content: center;
     flex-direction: column;
-    
+
     padding: 1px;
     cursor: pointer;
     transition: 0.2s;
@@ -219,25 +232,28 @@ body {
     border-radius: 5px;
     height: 25px;
 }
+
 hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 0 0;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0 0;
 }
 
 @media (max-width: 600px) {
     body {
         padding: 0;
         margin: 0;
-     
+
     }
 
     #main-container {
         align-items: stretch;
         padding: 9px;
-        overflow: hidden;
+        
     }
-
+    .form-wrapper {
+        width: 400px;
+    }
     #form-container {
         width: 100%;
         max-width: 420px;
@@ -246,16 +262,25 @@ hr {
     }
 
     #product-details {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
+        display: grid;
+        gap: 12px;
     }
+
+    #product-details input {
+        width: 100%;
+    }
+
     .order-details {
         gap: 0;
+        width: 100%;
+        flex-direction: column;
     }
-    
 
-    #main-container h2{
+    .order-details input {
+        width: 100%;
+    }
+
+    #main-container h2 {
         font-size: large;
         text-align: center;
     }
@@ -270,19 +295,31 @@ hr {
         font-size: x-small;
 
     }
-    #product-name{
+
+    #product-name {
         width: 150px;
     }
-    #purchase-date{
+
+    #purchase-date {
         width: 150px;
     }
+
     #email {
-        width: 150px;
+        width: 30px;
     }
+     hr {
+        display: none;
+     }
     .personal-details {
-        display: flex;
+        grid-template-columns: 1fr;
         gap: 0;
         width: 100%;
         justify-content: center;
+    }
+
+    .rating-group,
+    .radio-container {
+        padding: 12px 0;
+        border-bottom: 1px solid #e4d8c7;
     }
 }
