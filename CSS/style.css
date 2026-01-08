@@ -301,7 +301,7 @@ hr {
     }
 
     #purchase-date {
-        width: 150px;
+        max-width: 160px;
     }
 
     #email {
