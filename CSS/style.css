@@ -24,7 +24,7 @@ body {
 
 .form-wrapper {
     width: 100%;
-    max-width: 480px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -58,7 +58,7 @@ body {
 
 .order-details {
     
-    gap: 2px;
+    gap: 8px;
 }
 
 #product-name {
@@ -101,7 +101,7 @@ body {
 .radio-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     justify-content: center;
 }
 
@@ -251,9 +251,12 @@ hr {
         align-items: stretch;
         padding: 9px;
         
+        
     }
     .form-wrapper {
-        width: 400px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
     #form-container {
         width: 100%;
