@@ -1,0 +1,288 @@
+body {
+    background: #fcead4;
+    width: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container h2 {
+    font-weight: 100;
+    background: #fff6e8;
+    padding: 16px;
+    width: 480px;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+}
+
+.form-wrapper{
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+#form-container {
+    display: flex;
+    background: #fff6e8;
+    flex-direction: column;
+    width: 480px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    margin: 0 auto;
+    gap: 9px;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+#product-details {
+    display: grid;
+    
+    gap: 3px;
+    margin-bottom: 5px;
+}
+.personal-details {
+    display: flex;
+    width: 480px;
+    gap: 1px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1px;
+}
+.order-details {
+    
+    gap: 2px;
+}
+#product-name {
+    width: 220px;
+    height: 25px;
+    margin-top: 5px;
+}
+.order-details input.invalid .error{
+    display: block;
+}
+#email {
+    width: 220px;
+    height: 25px;
+    margin-top: 5px;
+}
+#purchase-date {
+    width: 120px;
+    height: 25px;
+}
+.text-label {
+    font-weight: 600;
+    gap: 1px;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+
+.radio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+}
+
+.radio-container.invalid .error {
+    visibility: visible;
+}
+
+.radio-label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.review-section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.rating-group {
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e0d3b8;
+}
+
+.rating-group p {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.rating-group:last-child {
+    border-bottom: none;
+}
+
+.required {
+    color: red;
+
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    visibility: hidden;
+}
+
+.rating-group.invalid .error {
+    visibility: visible;
+}
+
+.rating-group.invalid .star {
+    border-color: red;
+}
+
+.rating-group.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+}
+
+.text-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.star-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 70px;
+    width: 70px;
+    justify-content: space-around;
+    align-items: center;
+}
+.star {
+    width: 50px;
+    height: 50px;
+
+ 
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    font-size: 4.5rem;
+    justify-content: center;
+    flex-direction: column;
+    
+    padding: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+    user-select: none;
+    color: grey;
+}
+
+
+
+.star:hover {
+    color: #f0b966;
+}
+
+.star.active {
+    color: #f0b966;
+}
+
+.point-hint {
+    font-size: small;
+}
+
+#submit {
+    width: 150px;
+    position: relative;
+    background: #fff;
+    border: 3px solid white;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    height: 25px;
+}
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        margin: 0;
+     
+    }
+
+    #main-container {
+        align-items: stretch;
+        padding: 9px;
+        overflow: hidden;
+    }
+
+    #form-container {
+        width: 100%;
+        max-width: 420px;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    #product-details {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .order-details {
+        gap: 0;
+    }
+    
+
+    #main-container h2{
+        font-size: large;
+        text-align: center;
+    }
+
+    .star {
+        width: 55px;
+        height: 44px;
+        padding: 1px;
+    }
+
+    .point-hint {
+        font-size: x-small;
+
+    }
+    #product-name{
+        width: 150px;
+    }
+    #purchase-date{
+        width: 150px;
+    }
+    #email {
+        width: 150px;
+    }
+    .personal-details {
+        display: flex;
+        gap: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}

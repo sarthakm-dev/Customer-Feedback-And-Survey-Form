@@ -5,221 +5,459 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer feedback And Survey Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 
 <body>
     <div id="main-container">
-        <h1>Customer Feedback And Survey Form</h2>
+        <div class="form-wrapper">
+            <h2>Customer Feedback And Survey Form</h2>
             <form id="form-container">
                 <div id="product-details">
-                    <label for="orderNumber" class="text-label">Order Number (format ORD-XXXXXX):</label>
-                    <input type="text" id="pName" name="pName" required>
-                    <label for="email" class="text-label">Email:</label>
-                    <input type="text" id="email" name="email" required>    
-                    <label for="purchaseDate" class="text-label">Purchase Date:</label>
-                    <input type="date" id="purchaseDate" name="purchaseDate" required >
-                </div>
-                <div class="radio-container">
-                    <label for="shoppingMethod" class="radio-label">Shopping Method</label>
-                    <div class="radio-content">
-                        <span><input type="radio" name="method" id="str1" value="1" ><label for="str5">Online
-                                (Website)</label></span>
-                        <span><input type="radio" name="method" id="str2" value="2"><label for="str4">Offline
-                                (Stores)</label></span>
+                    <div class="personal-details">
+                        <div class="order-details">
+                            <label for="orderNumber" class="text-label">Order Number:<span
+                                    class="required">*</span></label>
+                            <input type="text" id="product-name" name="product-name" placeholder="In ORD-XXXXXX format">
+                            <small class="error">Enter in ORD-XXXXXX format</small>
+                        </div>
+                        <div class="order-details">
+                            <label for="email" class="text-label">Email:<span class="required">*</span></label>
+                            <input type="text" id="email" name="email">
+                            <small class="error">This is a required field</small>
+                        </div>
+
                     </div>
+                    <div class="order-details">
+                        <label for="purchaseDate" class="text-label">Purchase Date:<span
+                                class="required">*</span></label>
+                        <input type="date" id="purchase-date" name="purchase-date">
+                        <small class="error">This is a required field</small>
+                    </div>
+
                 </div>
-                <div class="rating-group" data-category="productQuality">
-                    <p>Product Quality <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
+                <div class="radio-container" data-radio="method">
+                    <label for="shoppingMethod" class="radio-label">Shopping Method<span
+                            class="required">*</span></label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="method" id="online" value="Online (Website)"><label
+                                for="online">Online
+                                (Website)</label></span>
+                        <span><input type="radio" name="method" id="offline" value="Offline (Store)"><label
+                                for="offline">Offline
+                                (Stores)</label></span>
                     </div>
                     <small class="error">This is a required field</small>
                 </div>
-                <div class="rating-group" data-category="matchesDescription">
-                    <p>Matches Description <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
+                <hr>
+                <div class="rating-group" data-category="product-cuality">
+                    <p>How was the Product Quality?<span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
                     </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="rating-group" data-category="matches-description">
+                    <p>To what extent did the product align with specified description? <span class="required">*</span>
+                    </p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
                 </div>
                 <div class="rating-group" data-category="durability">
-                    <p>Durability <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="rating-group" data-category="valueForMoney">
-                    <p>Value For Money <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="rating-group" data-category="websitesEaseOfUse">
-                    <p>Websites Ease Of Use <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="rating-group" data-category="productSearch">
-                    <p>Product Search <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="rating-group" data-category="checkoutProcess">
-                    <p>Checkout Process <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
+                    <p>How was the product durability> <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
 
-                <div class="rating-group" data-category="paymentOptions">
-                    <p>Payment Options <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="rating-group" data-category="deliverySpeed">
-                    <p>Delivery Speed <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
-                    </div>
-                </div>
-                <div class="radio-container">
-                    <label for="deliveryExperience" class="radio-label">Delivery Experience:</label>
-                    <div class="radio-content">
-                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Excellent
-                                (on-time, professional)</label></span>
-                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Good
-                                (minor-issues, resolved)</label></span>
-                        <span><input type="radio" name="experience" id="str3" value="3"><label for="str3">Average (some
-                                delays/issues)</label></span>
-                        <span><input type="radio" name="experience" id="str2" value="2"><label
-                                for="str2">Poor</label></span>
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
 
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="rating-group" data-category="packagingQuality">
-                    <p>Packaging Quality <span class="required">*</span></p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
+                <div class="rating-group" data-category="value-for-money">
+                    <p>How would you describe the products value for money? <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="radio-container">
-                    <label for="packageContentsMatch" class="radio-label">Package Contents Match:</label>
+                <div class="rating-group" data-category="websites-ease-of-use">
+                    <p>How would you describe the products website experience? <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="rating-group" data-category="product-search">
+                    <p>What was your experience while searching products?<span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="rating-group" data-category="checkout-process">
+                    <p>How was the websites checkout process? <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+
+                <div class="rating-group" data-category="payment-options">
+                    <p>What was your experience with the Payment Gateway? <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="rating-group" data-category="delivery-speed">
+                    <p>How was your delivery experience?<span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+
+                <div class="rating-group" data-category="packaging-quality">
+                    <p>How was the Packaging Quality? <span class="required">*</span></p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
+                    </div>
+                    <small class="error">This is a required field</small>
+                </div>
+                <div class="radio-container" data-radio="package-content-experience">
+                    <label for="packageContentsMatch" class="radio-label">Did the product delivered match with its image
+                        in the website? <span class="required">*</span></label>
                     <div class="radio-content">
-                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Yes,
+                        <span><input type="radio" name="package-content-experience" id="yes-correct"
+                                value="yes, everything correct"><label for="str5">Yes,
                                 Everything Correct</label></span>
-                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Missing
+                        <span><input type="radio" name="package-content-experience" id="missing-items"
+                                value="Missing Items"><label for="str4">Missing
                                 Items</label></span>
-                        <span><input type="radio" name="experience" id="str3" value="3"><label for="str3">Wrong
+                        <span><input type="radio" name="package-content-experience" id="wrong-items"
+                                value="Wrong Items"><label for="str3">Wrong
                                 Items</label></span>
-                        <span><input type="radio" name="experience" id="str2" value="2"><label for="str2">Damaged
+                        <span><input type="radio" name="package-content-experience" id="damaged-items"
+                                value="Damaged Items"><label for="str2">Damaged
                                 Items</label></span>
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="radio-container">
-                    <label for="supportContacted" class="radio-label">Support Contacted</label>
-                    <div class="supportContacted">
-                        <span><input type="radio" name="experience" id="str5" value="5"><label
+                <div class="radio-container" data-radio="support-contacted">
+                    <label for="supportContacted" class="radio-label">Did you Contact Support?</label>
+                    <div class="radio-content">
+                        <span><input type="radio" name="support-contacted" id="support-yes" value="yes"><label
                                 for="str5">Yes</label></span>
-                        <span><input type="radio" name="experience" id="str4" value="4"><label
+                        <span><input type="radio" name="support-contacted" id="support-no" value="no"><label
                                 for="str4">No</label></span>
 
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="rating-group" data-category="supportResponsiveness">
-                    <p>Support Responsiveness </p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
+                <div class="rating-group" data-category="support-responsiveness" data-conditional="support-yes">
+                    <p>If yes how was the Support Responsiveness? </p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="rating-group" data-category="checkoutProcess">
-                    <p>Support Helpfulness</p>
-                    <div class="box-rating">
-                        <div class="box" data-value="1">1</div>
-                        <div class="box" data-value="2">2</div>
-                        <div class="box" data-value="3">3</div>
-                        <div class="box" data-value="4">4</div>
-                        <div class="box" data-value="5">5</div>
+                <div class="rating-group" data-category="support-helpfulness" data-conditional="support-yes">
+                    <p>If yes how was the Support Helpfulness?</p>
+                    <div class="star-rating">
+                        <div class="star-item">
+                            <div class="star" data-value="1">★</div>
+                            <div class="point-hint">Very Poor</div>
+                        </div>
+
+                        <div class="star-item">
+                            <div class="star" data-value="2">★</div>
+                            <div class="point-hint">Poor</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="3">★</div>
+                            <div class="point-hint">Average</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="4">★</div>
+                            <div class="point-hint">Good</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star" data-value="5">★</div>
+                            <div class="point-hint">Excellent</div>
+                        </div>
+
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
-                <div class="radio-container">
-                    <label for="packageContentsMatch" class="radio-label">Recommend To Friends</label>
-                    <div class="radio-content">
-                        <span><input type="radio" name="experience" id="str5" value="5"><label for="str5">Definitely
+                <div class="radio-container" data-radio="recommendation-experience">
+                    <label for="recommendToFriends" class="radio-label">Would you recommend product to friends?<span
+                            class="required">*</span></label>
+                    <div class="radio-content" data-radio="recommendation-experience">
+                        <span><input type="radio" name="recommendation-experience" id="definitely-yes"
+                                value="Definitely Yes"><label for="str5">Definitely
                                 Yes</label></span>
-                        <span><input type="radio" name="experience" id="str4" value="4"><label for="str4">Probably
+                        <span><input type="radio" name="recommendation-experience" id="probably-yes"
+                                value="Probably No"><label for="str4">Probably
                                 Yes</label></span>
-                        <span><input type="radio" name="experience" id="str3" value="3"><label
+                        <span><input type="radio" name="recommendation-experience" id="unsure" value="Unsure"><label
                                 for="str3">Unsure</label></span>
-                        <span><input type="radio" name="experience" id="str2" value="2"><label for="str2">Probably
+                        <span><input type="radio" name="recommendation-experience" id="probably-no"
+                                value="Probably No"><label for="str2">Probably
                                 No</label></span>
-                        <span><input type="radio" name="experience" id="str1" value="1"><label for="str1">Definitely
+                        <span><input type="radio" name="recommendation-experience" id="definitely-no"
+                                value="Definitely No"><label for="str1">Definitely
                                 No</label></span>
                     </div>
+                    <small class="error">This is a required field</small>
                 </div>
                 <label for="whatDidYouLike" class="text-label">What Did You Like</label>
-                <textarea maxlength="300">Enter Your Text Here...</textarea>
-                <label for="whatToImprove" class="text-label">What To Improve</label>
-                <textarea maxlength="300">Enter Your Text Here...</textarea>
+                <textarea placeholder="Enter your text here.." name="what-did-you-like" maxlength="300"></textarea>
+                <label for="whatToImprove" class="text-label">What To Improve?</label>
+                <textarea placeholder="Enter your text here.." name="what-to-improve" maxlength="300"></textarea>
                 <label for="additionalComments" class="text-label">Additional Comments</label>
-                <textarea maxlength="200">Enter Your Text Here...</textarea>
+                <textarea placeholder="Enter your text here.." name="additional-comments" maxlength="200"></textarea>
                 <div>
                     <label for="participateInMonthlyReview">Participate In Monthly Review</label>
-                    <input type="checkbox" id="participateInMonthlyReview" name="review" value="Yes">
+                    <input type="checkbox" id="participate-in-monthly-review" name="review" value="Yes">
                 </div>
 
-                <button id="submit">Submit</button>
-        </form>
+                <button id="submit" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
 
-<script src="script.js"></script>
+    <script src="./JS/script.js"></script>
 </body>
 
 </html>
