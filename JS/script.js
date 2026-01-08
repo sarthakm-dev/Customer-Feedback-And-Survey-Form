@@ -126,7 +126,7 @@ requiredRadios.forEach(name=>{
     });
 });
 function scrollToFirstInvalid(){
-    const firstInvalid = document.querySelector('.invalid input','.invalid textarea','.rating-group.invalid','.radio-container.invalid');
+    const firstInvalid = document.querySelector('.invalid input, .invalid textarea, .rating-group.invalid, .radio-container.invalid');
     if(!firstInvalid) return;
     firstInvalid.scrollIntoView({
         behavior:"smooth",
@@ -142,12 +142,12 @@ form.addEventListener("submit", e => {
 
     // Order Number Required Logic
     const order_input = document.querySelector(`input[name="product-name"]`);
-    if(!validateRequired(order_input)){
+    if(!formatRequired(order_input)){
         valid = false;
     }
     //Email required Logic
     const email_input = document.querySelector('input[name="email"]');
-    if (!email_input.value.trim()) {
+    if (!validateRequired(email_input)) {
         email_input.classList.add("invalid");
         valid = false;
         email_input.nextElementSibling.style.visibility = "visible";
