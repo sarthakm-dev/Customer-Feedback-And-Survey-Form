@@ -155,10 +155,12 @@ body {
     display: block;
     margin-top: 5px;
     visibility: hidden;
+    
 }
 
 .rating-group.invalid .error {
     visibility: visible;
+    margin-left: 28px;
 }
 
 .rating-group.invalid .star {
@@ -332,4 +334,8 @@ hr {
     .rating-group p {
         margin-left: 0;
     }
+    .rating-group.invalid .error {
+    visibility: visible;
+    margin-left: 0;
+}
 }
