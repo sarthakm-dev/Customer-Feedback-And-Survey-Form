@@ -137,6 +137,7 @@ body {
 .rating-group p {
     margin-bottom: 8px;
     font-weight: 600;
+    margin-left: 25px;
 }
 
 .rating-group:last-child {
@@ -171,8 +172,9 @@ body {
 
 .star-rating {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     gap: 25px;
+  
 }
 
 .text-label {
@@ -326,5 +328,8 @@ hr {
     .radio-container {
         padding: 12px 0;
         border-bottom: 1px solid #e4d8c7;
+    }
+    .rating-group p {
+        margin-left: 0;
     }
 }

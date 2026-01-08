@@ -125,6 +125,14 @@ requiredRadios.forEach(name=>{
         });
     });
 });
+function scrollToFirstInvalid(){
+    const firstInvalid = document.querySelector('.invalid input','.invalid textarea','.rating-group.invalid','.radio-container.invalid');
+    if(!firstInvalid) return;
+    firstInvalid.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    })
+}
 //Form Validation
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -184,6 +192,7 @@ form.addEventListener("submit", e => {
     });
     if (!valid) {
         alert("Please fill all required fields");
+        scrollToFirstInvalid();
         return;
     }
     const formData = new FormData(form);
