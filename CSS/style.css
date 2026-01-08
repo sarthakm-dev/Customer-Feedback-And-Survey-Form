@@ -84,6 +84,7 @@ body {
 #purchase-date {
     width: 160px;
     height: 25px;
+    text-align: center;
 }
 
 .text-label {
