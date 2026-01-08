@@ -290,9 +290,10 @@ hr {
     }
 
     .star {
-        width: 55px;
+        width: 12px;
         height: 44px;
         padding: 1px;
+        
     }
 
     .point-hint {
@@ -307,7 +308,7 @@ hr {
     #purchase-date {
         max-width: 160px;
     }
-
+    
     #email {
         width: 30px;
     }
