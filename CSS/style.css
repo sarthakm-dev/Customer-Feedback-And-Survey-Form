@@ -104,14 +104,18 @@ body {
     gap: 8px;
     justify-content: center;
     margin: 18px;
+    
 }
-
+.section-divider {
+    border-top: 1px solid #e0d3b8;
+    margin: 29px 0 24px;
+}
 
 .radio-content {
     display: flex;
     flex-direction: column;
     gap: 2px;
-
+    
 }
 
 .radio-container.invalid .error {
@@ -275,7 +279,6 @@ hr {
     #product-details {
         display: grid;
         gap: 12px;
-        padding: 0;
     }
 
     #product-details input {
