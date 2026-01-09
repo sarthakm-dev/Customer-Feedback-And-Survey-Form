@@ -5,6 +5,18 @@ body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
+input:not([type="radio"]):not([type="checkbox"]),
+textarea {
+    font-size: 16px;
+    height: 48px;
+    padding: 0 12px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    border-style: none;
+    transition: border-color 0.2s ease;
+}
+
 #main-container {
     display: flex;
     flex-direction: column;
@@ -16,7 +28,7 @@ body {
     font-weight: 100;
     background: #fff6e8;
     padding: 16px;
-  
+
     text-align: center;
     border-radius: 10px;
     letter-spacing: 0.5px;
@@ -32,7 +44,7 @@ body {
     display: flex;
     background: #fff6e8;
     flex-direction: column;
-   
+
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
     margin: 0 auto;
     gap: 6px;
@@ -50,33 +62,34 @@ body {
 
 .personal-details {
     display: grid;
-    
+
     gap: 16px;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 1px;
 }
 
 .order-details {
-    
+
     gap: 8px;
 }
 
 #product-name {
-   
+
     height: 25px;
     margin-top: 5px;
 }
 
-.order-details input{
+.order-details input {
     width: 100%;
     box-sizing: border-box;
 }
+
 .order-details input.invalid .error {
     display: block;
 }
 
 #email {
- 
+
     height: 25px;
     margin-top: 5px;
 }
@@ -103,9 +116,11 @@ body {
     flex-direction: column;
     gap: 8px;
     justify-content: center;
-    margin: 18px;
-    
+    margin: 10px;
+    margin-left: 24px;
+
 }
+
 .section-divider {
     border-top: 1px solid #e0d3b8;
     margin: 29px 0 24px;
@@ -115,7 +130,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    
+
 }
 
 .radio-container.invalid .error {
@@ -124,7 +139,7 @@ body {
 
 .radio-label {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 6px;
 }
 
@@ -160,7 +175,7 @@ body {
     display: block;
     margin-top: 5px;
     visibility: hidden;
-    
+
 }
 
 .rating-group.invalid .error {
@@ -183,12 +198,13 @@ body {
     display: flex;
     justify-content: space-around;
     gap: 25px;
-  
+
 }
 
 .text-label {
     font-size: 14px;
     margin-bottom: 6px;
+    margin-left: 3px;
 }
 
 .star-item {
@@ -245,6 +261,17 @@ body {
     height: 25px;
 }
 
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+}
+
+#participate-in-monthly-review {
+    height: 12px;
+}
+
 hr {
     border: none;
     border-top: 1px solid #ccc;
@@ -261,14 +288,16 @@ hr {
     #main-container {
         align-items: stretch;
         padding: 9px;
-        
-        
+
+
     }
+
     .form-wrapper {
         width: 100%;
         max-width: 100%;
         margin: 0;
     }
+
     #form-container {
         width: 100%;
         max-width: 420px;
@@ -304,7 +333,7 @@ hr {
         width: 12px;
         height: 44px;
         padding: 1px;
-        
+
     }
 
     .point-hint {
@@ -319,13 +348,15 @@ hr {
     #purchase-date {
         max-width: 160px;
     }
-    
+
     #email {
         width: 30px;
     }
-     hr {
+
+    hr {
         display: none;
-     }
+    }
+
     .personal-details {
         grid-template-columns: 1fr;
         gap: 0;
@@ -339,11 +370,19 @@ hr {
         border-bottom: 1px solid #e4d8c7;
         margin: 0;
     }
+
     .rating-group p {
         margin-left: 0;
     }
+
     .rating-group.invalid .error {
-    visibility: visible;
-    margin-left: 0;
-}
+        visibility: visible;
+        margin-left: 0;
+    }
+
+    .text-label {
+        font-size: 14px;
+        margin-bottom: 6px;
+        margin-left: 2px;
+    }
 }

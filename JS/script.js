@@ -133,6 +133,20 @@ function scrollToFirstInvalid(){
         block:"center"
     })
 }
+const dateInput = document.getElementById("purchase-date");
+dateInput.max = new Date().toISOString().split("T")[0];
+dateInput.addEventListener("blur",()=>{
+    if(dateInput.value.trim()){
+        dateInput.classList.remove("invalid");
+        dateInput.nextElementSibling.style.visibility="hidden";
+    }
+})
+dateInput.addEventListener("input",()=>{
+    if(dateInput.value.trim()){
+        dateInput.classList.remove("invalid");
+        dateInput.nextElementSibling.style.visibility="hidden";
+    }
+})
 //Form Validation
 form.addEventListener("submit", e => {
     e.preventDefault();
