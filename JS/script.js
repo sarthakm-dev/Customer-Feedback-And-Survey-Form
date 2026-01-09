@@ -29,7 +29,7 @@ supportRadios.forEach(radio => {
                 group.classList.add("disabled");
                 ratings[group.dataset.category] = 0;
                 group.classList.remove("invalid");
-                const stars = group.querySelectorAll(".stars");
+                const stars = group.querySelectorAll(".emoji");
                 stars.forEach(b => b.classList.remove("active"));
             }
         });
@@ -115,6 +115,22 @@ rateElements.forEach(group=>{
         }
     })
 })
+ratingGroups.forEach(group =>{
+    const category = group.dataset.category;
+    const items = group.querySelectorAll(".emoji-item");
+    ratings[category]=0;
+    items.forEach(item => {
+        item.addEventListener("click",()=>{
+            const emoji = item.querySelector(".emoji");
+            const value = Number(emoji.dataset.value);
+            ratings[category] = value;
+            items.forEach(i=>{
+                i.classList.toggle("active",Number(i.querySelector(".emoji").dataset.value)<=value)
+            });
+            group.classList.remove("invalid");
+        });
+    });
+});
 const requiredRadios = ["method", "package-content-experience", "support-contacted", "recommendation-experience"]
 requiredRadios.forEach(name=>{
     const radios = document.querySelectorAll(`input[name="${name}"]`);
