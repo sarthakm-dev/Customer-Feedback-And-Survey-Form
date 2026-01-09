@@ -43,7 +43,7 @@ body {
 
 #product-details {
     display: grid;
-
+    padding: 18px;
     gap: 3px;
     margin-bottom: 5px;
 }
@@ -103,6 +103,7 @@ body {
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+    margin: 18px;
 }
 
 
@@ -274,6 +275,7 @@ hr {
     #product-details {
         display: grid;
         gap: 12px;
+        padding: 0;
     }
 
     #product-details input {
@@ -332,6 +334,7 @@ hr {
     .radio-container {
         padding: 12px 0;
         border-bottom: 1px solid #e4d8c7;
+        margin: 0;
     }
     .rating-group p {
         margin-left: 0;
