@@ -35,7 +35,7 @@ body {
    
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
     margin: 0 auto;
-    gap: 9px;
+    gap: 6px;
     justify-content: center;
     border-radius: 10px;
     padding: 16px;
@@ -45,7 +45,7 @@ body {
     display: grid;
     padding: 18px;
     gap: 3px;
-    margin-bottom: 5px;
+    margin-bottom: -32px;
 }
 
 .personal-details {
