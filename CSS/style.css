@@ -5,7 +5,18 @@ body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-input:not([type="radio"]):not([type="checkbox"]),
+input:not([type="radio"]):not([type="checkbox"]) {
+    font-size: 16px;
+    height: 48px;
+    padding: 0 12px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    border-style: none;
+    transition: border-color 0.2s ease;
+
+}
+
 textarea {
     font-size: 16px;
     height: 48px;
@@ -15,6 +26,8 @@ textarea {
     color: #333;
     border-style: none;
     transition: border-color 0.2s ease;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #main-container {
@@ -103,6 +116,12 @@ textarea {
 .text-label {
     font-weight: 600;
     gap: 1px;
+}
+
+.textarea-label {
+    font-weight: 600;
+    gap: 1px;
+    margin-left: 24px;
 }
 
 .review-container {
@@ -263,13 +282,14 @@ textarea {
 
 .checkbox-container {
     display: flex;
-    justify-content: center;
+    margin-top: 4px;
     align-items: center;
-    height: 16px;
+    height: 20px;
 }
 
 #participate-in-monthly-review {
     height: 12px;
+
 }
 
 hr {
@@ -308,6 +328,7 @@ hr {
     #product-details {
         display: grid;
         gap: 12px;
+        padding: 0;
     }
 
     #product-details input {
@@ -371,6 +392,12 @@ hr {
         margin: 0;
     }
 
+    .textarea-label {
+        font-weight: 600;
+        gap: 1px;
+        margin-left: 4px;
+    }
+
     .rating-group p {
         margin-left: 0;
     }
@@ -384,5 +411,10 @@ hr {
         font-size: 14px;
         margin-bottom: 6px;
         margin-left: 2px;
+    }
+
+    textarea {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
