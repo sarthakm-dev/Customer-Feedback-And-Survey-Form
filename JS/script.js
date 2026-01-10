@@ -57,7 +57,7 @@ function formatRequired(input){
     }
 }
 function isValidEmail(email) {
-  const emailRegex = /^\S+@\S+\.\S+$/;
+  const emailRegex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
   return emailRegex.test(email);
 }
 
