@@ -1,9 +1,98 @@
 body {
-    background: #fcead4;
+
+    background: white;
     width: 100%;
+    min-height: 100vh;
     margin: 0;
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
+.rating-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 30px;
+  position: relative;
+}
+
+.rating-stepper::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: darkgreen;
+  z-index: 0;
+}
+
+.step {
+  background: #ecfdf5;
+  border: 2px solid #bbf7d0;
+  border-radius: 12px;
+  width: 90px;
+  padding: 0 0;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.step span {
+  font-size: 20px;
+  display: block;
+}
+
+.step.active {
+  background: darkgreen;
+  color: white;
+  
+}
+
+.rating-section {
+  display: none;
+}
+
+.rating-section.active {
+  display: block;
+}
+
+.rating-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+label {
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+#app-container {
+    max-width: 1400px;
+    display: flex;
+    
+    
+    padding: 20px;
+}
+.left-panel {
+    background: #c9f7b9;
+    padding: 24px;
+    border: 1px solid rgba(16,185,129,0.25);
+    
+    width: 40%;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+}
+.right-panel {
+
+    padding: 24px;
+    border: 1px solid rgba(16,185,129,0.25);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.408),inset 0 1px 0 rgba(255,255,255,0.7);
+    width: 100%;
+}
+
 
 input:not([type="radio"]):not([type="checkbox"]) {
     font-size: 16px;
@@ -26,8 +115,6 @@ textarea {
     color: #333;
     border-style: none;
     transition: border-color 0.2s ease;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 #main-container {
@@ -49,28 +136,22 @@ textarea {
 
 .form-wrapper {
     width: 100%;
-    max-width: 680px;
     margin: 0 auto;
 }
 
 #form-container {
     display: flex;
-    background: #fff6e8;
+
     flex-direction: column;
 
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    margin: 0 auto;
-    gap: 6px;
     justify-content: center;
     border-radius: 10px;
-    padding: 16px;
+    padding: 6px;
 }
 
 #product-details {
     display: grid;
-    padding: 18px;
-    gap: 3px;
-    margin-bottom: -32px;
+    padding: 4px;
 }
 
 .personal-details {
@@ -87,11 +168,18 @@ textarea {
 }
 
 #product-name {
-
-    height: 25px;
+    background-color: transparent;
+    background: transparent;
+    border: 2px solid darkgreen;
+    height: 32px;
+    outline: none;
     margin-top: 5px;
+   font-weight: 600;
 }
-
+.main-radio-label {
+    font-size: 14px;
+    font-weight: 600;
+}
 .order-details input {
     width: 100%;
     box-sizing: border-box;
@@ -102,9 +190,12 @@ textarea {
 }
 
 #email {
-
-    height: 25px;
+    background-color: transparent;
+    border: 2px solid darkgreen;
+    height: 32px;
     margin-top: 5px;
+    font-weight: 600;
+    outline: none;
 }
 
 #purchase-date {
@@ -121,7 +212,7 @@ textarea {
 .textarea-label {
     font-weight: 600;
     gap: 1px;
-    margin-left: 24px;
+    
 }
 
 .review-container {
@@ -135,14 +226,14 @@ textarea {
     flex-direction: column;
     gap: 8px;
     justify-content: center;
-    margin: 10px;
-    margin-left: 24px;
+    margin: 4px;
+   
 
 }
 
 .section-divider {
     border-top: 1px solid #e0d3b8;
-    margin: 29px 0 24px;
+    margin: 0 0 8px;
 }
 
 .radio-content {
@@ -176,7 +267,7 @@ textarea {
 .rating-group p {
     margin-bottom: 8px;
     font-weight: 600;
-    margin-left: 25px;
+    margin-left: 0;
 }
 
 .rating-group:last-child {
@@ -252,34 +343,42 @@ textarea {
     cursor: pointer;
     transition: 0.2s;
     user-select: none;
-    color: grey;
+    color: white;
 }
 
 
 
 .star:hover {
-    color: #f0b966;
+    color: darkgreen;
 }
 
 .star.active {
-    color: #f0b966;
+    color: darkgreen;
 }
 
 .point-hint {
     font-size: small;
+    color: #000;
 }
 
 #submit {
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     background: #fff;
-    border: 3px solid white;
     left: 50%;
     transform: translate(-50%);
     border-radius: 5px;
+    margin-top: 2px;
     height: 25px;
+    color: #000;
+    cursor: pointer;
 }
-
+#submit:hover {
+    background: darkgreen;
+}
 .checkbox-container {
     display: flex;
     margin-top: 4px;
@@ -298,6 +397,75 @@ hr {
     margin: 0 0;
 }
 
+.table-panel {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.data-table thead {
+  background: #f1f5f3;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.data-table td {
+  padding: 14px;
+  font-size: 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.data-table tr:hover {
+  background: #f9fafb;
+}
+
+
+.view-btn {
+    background: #22c55e;
+}
+
+.edit-btn {
+    background: #3b83f6;
+}
+
+.delete-btn {
+    background: #ef4444;
+}
+
+button {
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-right: 4px;
+}
+
+#ratings-section h4 {
+    color: #000;
+}
+#prevStep,#nextStep{
+    background: darkgreen;
+}
+.optional-text {
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 600px) {
     body {
         padding: 0;
@@ -348,6 +516,8 @@ hr {
     #main-container h2 {
         font-size: large;
         text-align: center;
+        font-weight: 600;
+        color: #065f46;
     }
 
     .star {
