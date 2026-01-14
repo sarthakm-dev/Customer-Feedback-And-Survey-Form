@@ -70,7 +70,7 @@ body {
     background: #ffffff;
     border: 2px solid #bbf7d0;
     border-radius: 12px;
-    width: 56px;
+    width: 44px;
     padding: 0 0;
     text-align: center;
     font-size: 12px;
@@ -575,22 +575,24 @@ hr {
 .data-table tr:hover {
     background: #f9fafb;
 }
-
+.table-actions button{
+    padding: 0px 0px;
+}
 
 .view-btn {
-    background: var(--primary-500);
+    background-color: white;
     color: white;
     cursor: pointer;
 }
 
 .edit-btn {
-    background: var(--primary-700);
+    background-color: white;
     color: white;
     cursor: pointer;
 }
 
 .delete-btn {
-    background: var(--primary-900);
+    background-color: white;
     color: white;
     cursor: pointer;    
 }
