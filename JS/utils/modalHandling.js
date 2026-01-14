@@ -57,8 +57,11 @@ export function closeModal() {
     if (modalOverlay) modalOverlay.classList.add("hidden");
 }
 
-export function openSuccessModal(){
-    document.getElementById("success-modal-overlay").classList.remove("hidden");
+export function openSuccessModal(message="Form submitted successfully"){
+    const modal = document.getElementById("success-modal-overlay");
+    const text = modal.querySelector(".success-text");
+    text.textContent = message;
+    modal.classList.remove("hidden");
 }
 
 export function closeSuccessModal(){

@@ -27,7 +27,7 @@ validation.setupOrderNumberValidation();
 validation.setupDateValidation();
 ratings.setupStarRatings(ratingData);
 conditional.setupConditionalFields(ratingData);
-stepperNav.initializeStepper(stepperState,ratingData);
+stepperNav.initializeStepper(stepperState, ratingData);
 
 function saveRecords() {
     storage.saveToLocalStorage(records);
@@ -48,12 +48,24 @@ function handleDeleteConfirm() {
 modalHandling.setupDeleteModalHandlers(handleDeleteConfirm);
 
 // Update to Submit button
-function  resetEditMode(){
-    editIndex=null;
-    const submitBtn=document.getElementById("submit");
-    if(submitBtn){
-        submitBtn.textContent="Submit";
+function resetEditMode() {
+    editIndex = null;
+    const submitBtn = document.getElementById("submit");
+    if (submitBtn) {
+        submitBtn.textContent = "Submit";
     }
+}
+
+//Duplicate Check
+function isDuplicateRecord(records, newRecord, editIndex) {
+    return records.some((record, index) => {
+
+        if (editIndex !== null && index === editIndex) {
+            return false;
+        }
+        return (record.orderNumber === newRecord.orderNumber && record.email === newRecord.email);
+    });
+
 }
 
 //Table Action
@@ -65,11 +77,11 @@ tableActions.setupTableActionHandlers({
         formManagement.populateForm(records[index], ratingData, form);
         editIndex = index;
         const submitBtn = document.getElementById("submit");
-        if(submitBtn){
-            submitBtn.textContent="Update";
+        if (submitBtn) {
+            submitBtn.textContent = "Update";
         }
         const modalMessage = document.getElementById("success-message");
-        if(modalMessage){
+        if (modalMessage) {
             modalMessage.textContent = "Form updated successfully";
         }
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -82,11 +94,11 @@ tableActions.setupTableActionHandlers({
 
 //Radio Validation
 
-requiredRadios.forEach(name=>{
+requiredRadios.forEach(name => {
     const radios = document.querySelectorAll(`input[name="${name}"]`);
     const container = document.querySelector(`[data-radio="${name}"]`);
-    radios.forEach(radio=>{
-        radio.addEventListener("change",()=>{
+    radios.forEach(radio => {
+        radio.addEventListener("change", () => {
             container.classList.remove("invalid");
         });
     });
@@ -176,17 +188,25 @@ form.addEventListener("submit", e => {
     };
 
     console.log("FORM SUBMITTED:", display);
+    let successMessage;
     if (editIndex == null) {
+        if (isDuplicateRecord(records, display, editIndex)) {
+            alert("Feedback already exists for this OrderNumber and Email");
+            return;
+        }
         records.push(display);
+        successMessage="Form Submitted Successfully"
     } else {
         records[editIndex] = display;
         editIndex = null;
         resetEditMode();
+        successMessage="Form Updated Successfully"
     }
+
     saveRecords();
     tableRendering.renderMainTable(records);
-    stepperNav.setCurrentStep(stepperState,0);
-    modalHandling.openSuccessModal();
+    stepperNav.setCurrentStep(stepperState, 0);
+    modalHandling.openSuccessModal(successMessage);
     resetEditMode();
     formManagement.resetForm(form, ratingData);
 });
