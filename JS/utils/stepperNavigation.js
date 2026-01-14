@@ -8,11 +8,11 @@ let steps = [];
 let nextBtn = null;
 let prevBtn = null;
 let submitBtn = null;
-const REQUIRED_RADIOS = ["method","package-content-experience","support-contacted","recommendation-experience"];
+const REQUIRED_RADIOS = ["method", "package-content-experience", "support-contacted", "recommendation-experience"];
 const STEP_RADIOS = {
     0: ["method"],
     2: ["package-content-experience"],
-    3: ["support-contacted","recommendation-experience"]
+    3: ["support-contacted", "recommendation-experience"]
 };
 export function initializeStepper(state, ratings) {
     sections = document.querySelectorAll(".rating-section");
@@ -21,7 +21,7 @@ export function initializeStepper(state, ratings) {
     nextBtn = document.getElementById("nextBtn");
     prevBtn = document.getElementById("prevBtn");
     submitBtn = document.getElementById("submit");
-    
+
     if (!nextBtn || !prevBtn) {
         console.error("Stepper buttons not found");
         return;
@@ -32,22 +32,21 @@ export function initializeStepper(state, ratings) {
     nextBtn.addEventListener("click", () => {
         const supportContacted = conditional.getSupportContactedStatus();
 
-        if(state.currentStep===0){
-            
-        }
+        let isFormValid = true;
+
+    
         const radiosToValidate = STEP_RADIOS[state.currentStep] || [];
         const radiosValid = validateRadios(radiosToValidate);
-        if(!radiosValid){
-            document.querySelector(".radio-container.invalid")?.scrollIntoView({behavior:"smooth",block:"center"});
-            return;
-        }
-        const isValid = validateCurrentStep(
+        if (!radiosValid) isFormValid = false;
+
+        const stepValid = validateCurrentStep(
             state.currentStep,
             ratings,
             supportContacted
         );
+        if (!stepValid) isFormValid = false;
 
-        if (!isValid) {
+        if (!isFormValid) {
             document
                 .querySelector(".invalid")
                 ?.scrollIntoView({ behavior: "smooth", block: "center" });
