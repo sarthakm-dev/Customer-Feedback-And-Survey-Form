@@ -37,9 +37,6 @@ export function validateRequired(input) {
     }
 }
 
-/**
- * Setup real-time validation for email inputs
- */
 export function setupEmailValidation() {
     const email = document.querySelectorAll('input[name="email"]');
     email.forEach(input => {
