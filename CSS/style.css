@@ -575,26 +575,30 @@ hr {
 .data-table tr:hover {
     background: #f9fafb;
 }
-.table-actions button{
-    padding: 0px 0px;
-}
 
-.view-btn {
+.table-actions button {
     background-color: white;
-    color: white;
+}
+.view-btn {
+    background: var(--primary-500);
+    color: var(--primary-500);
     cursor: pointer;
+    font-size: 20px;
 }
 
 .edit-btn {
-    background-color: white;
-    color: white;
+    background: var(--primary-700);
+    color: var(--primary-500);
     cursor: pointer;
+    font-size: 20px;
 }
 
 .delete-btn {
-    background-color: white;
-    color: white;
-    cursor: pointer;    
+    background: var(--primary-900);
+    color: var(--primary-500);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 button {
@@ -683,7 +687,7 @@ button {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    padding: 5px;
+    padding: 16px;
 }
 
 .primary-btn {
