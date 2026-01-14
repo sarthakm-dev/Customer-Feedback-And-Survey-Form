@@ -580,16 +580,19 @@ hr {
 .view-btn {
     background: var(--primary-500);
     color: white;
+    cursor: pointer;
 }
 
 .edit-btn {
     background: var(--primary-700);
     color: white;
+    cursor: pointer;
 }
 
 .delete-btn {
     background: var(--primary-900);
     color: white;
+    cursor: pointer;    
 }
 
 button {
