@@ -36,9 +36,21 @@ export function validateRequired(input:HTMLInputElement):boolean {
         return true;
     }
 }
-
+function selectRequired(input:HTMLInputElement):boolean {
+    console.log("Select Value",input.value.trim());
+    if(input.value.trim()!==""){
+        input.classList.add('invalid');
+        (input.nextElementSibling as HTMLElement).style.visibility = "visible";
+        return false;
+    }else{
+        input.classList.remove('invalid');
+        (input.nextElementSibling as HTMLElement).style.visibility = "hidden";
+        return true;
+    }
+}
 export function setupEmailValidation():void {
     const email = document.querySelectorAll<HTMLInputElement>('input[name="email"]');
+
     email.forEach(input => {
         input.addEventListener('blur', () => {
             validateRequired(input);
@@ -50,7 +62,39 @@ export function setupEmailValidation():void {
         });
     });
 }
-
+export function setupSelectValidation():void {
+    const select = document.querySelectorAll<HTMLInputElement>('option[name="car"]');
+    
+    select.forEach(input => {
+        console.log("Selected",select)
+        input.addEventListener('blur', () => {
+            selectRequired(input);
+        });
+        input.addEventListener('input', () => {
+            selectRequired(input);
+        });
+    });
+}
+export function validateSelect(selectId:string){
+    console.log("Validate Select Called");
+    const select = document.getElementById(selectId) as HTMLSelectElement | null;
+    if(!select) return true;
+    console.log(select)
+    const container = select.closest(".select-container");
+    console.log(container)
+    if(!container) return true;
+    console.log("Select value",typeof select.value);
+    if(select.value === ""){
+        container.classList.add("invalid");
+        const d = select.nextElementSibling as HTMLElement;
+        console.log("next Element",d);
+        (select.nextElementSibling as HTMLElement).style.visibility = "visible";
+        return false;
+    }
+    container.classList.remove("invalid");
+    (select.nextElementSibling as HTMLElement).style.visibility = "hidden";
+    return true;
+}
 
 export function radioValidation(){
     requiredRadios.forEach(name => {

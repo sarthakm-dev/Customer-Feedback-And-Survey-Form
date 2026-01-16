@@ -2,7 +2,7 @@
 
 import { validateCurrentStep, validateRadios } from "./formValidation.js";
 import * as conditional from "./conditional.js";
-import { validatePurchasedate } from "./validation.js";
+import { validatePurchasedate, validateSelect } from "./validation.js";
 import { stepperState } from "../types/stepper";
 import { RatingMap } from "../types/ratings";
 
@@ -37,6 +37,10 @@ export function initializeStepper(state: stepperState, ratings: RatingMap):void 
     nextBtn.addEventListener("click", () => {
         const supportContacted = conditional.getSupportContactedStatus() ?? "";
         let isFormValid = true;
+        
+        if(!validateSelect("item-select")){
+            isFormValid = false;
+        }
         if(state.currentStep === 3 && supportContacted === null){
             isFormValid = false;
         }

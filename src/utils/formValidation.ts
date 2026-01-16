@@ -24,6 +24,7 @@ export function validateCurrentStep(currentStep:number, ratings:RatingMap, suppo
     let valid = true;
     if(currentStep===0){
         const orderInput = document.querySelector<HTMLInputElement>(`input[name="product-name"]`);
+        
         if(!orderInput) return;
         if(!orderInput.value.trim()){
             orderInput.classList.add("invalid");

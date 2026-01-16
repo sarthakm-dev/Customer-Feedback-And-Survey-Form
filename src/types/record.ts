@@ -12,5 +12,6 @@ export interface RecordData {
     whatToImprove: string | null,
     additionalComments: string | null,
     participateInMonthlyReview: string,
+    car: string | null,
     ratings: RatingMap,
 }

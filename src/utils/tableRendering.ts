@@ -30,6 +30,7 @@ export function renderMainTable(records:RecordData[]):void {
 
 
 export function renderRatingsTable(ratings:RatingMap) {
+    console.log(ratings)
     const section = document.getElementById("ratings-section") as HTMLElement;
     const tbody = document.querySelector<HTMLTableSectionElement>("#ratings-table tbody")!;
     tbody.innerHTML = "";

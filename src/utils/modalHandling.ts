@@ -7,7 +7,7 @@ export function showRatingsModal(record:RecordData):void {
 
     const tbody = document.getElementById("ratings-table-body") as HTMLTableSectionElement;
     tbody.innerHTML = "";
-
+    
     Object.entries(record.ratings).forEach(([category, value]) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -44,7 +44,13 @@ export function showRatingsModal(record:RecordData):void {
             <p>${record.participateInMonthlyReview === "yes" ? "Yes" : "No"}</p>
         </div>
     `;
-    
+    const carmodal = document.getElementById("carsmodal") as HTMLElement;
+    carmodal.innerHTML = `
+    <div class="optional-row">
+            <strong>Car Type:</strong>
+            <p>${record.car || "<span class='na'>Not provided</span>"}</p>
+        </div>
+    `
     openModal();
 }
 

@@ -23,10 +23,15 @@ const stepperState: stepperState = {
     currentStep: 0
 };
 
+const itemSelect = document.getElementById("item-select") as HTMLSelectElement;
+itemSelect?.addEventListener("change",()=>{
+    validation.validateSelect("item-select");
+})
 tableRendering.renderMainTable(records);
 validation.setupEmailValidation();
 validation.setupOrderNumberValidation();
 validation.setupDateValidation();
+validation.setupSelectValidation();
 ratings.setupStarRatings(ratingData);
 conditional.setupConditionalFields(ratingData);
 validation.radioValidation();
@@ -195,6 +200,7 @@ form.addEventListener("submit", e => {
         whatToImprove: getString(formData, "what-to-improve"),
         additionalComments: getString(formData, "additional-comments"),
         participateInMonthlyReview: getString(formData, "review") === "Yes" ? "yes" : "no",
+        car: getString(formData,"cars"),
         ratings: { ...ratingData }
     };
     if (isDuplicateRecord(records, display, editIndex)) {
