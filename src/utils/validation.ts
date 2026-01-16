@@ -1,6 +1,6 @@
 // Validation utility functions
 const emailRegex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-
+const requiredRadios = ["method", "package-content-experience", "support-contacted", "recommendation-experience"]
 
 export function formatRequired(input:HTMLInputElement):boolean {
     const order_id = input.value.trim();
@@ -51,6 +51,18 @@ export function setupEmailValidation():void {
     });
 }
 
+
+export function radioValidation(){
+    requiredRadios.forEach(name => {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        const container = document.querySelector(`[data-radio="${name}"]`);
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                container?.classList.remove("invalid");
+            });
+        });
+    });
+}
 
 export function setupOrderNumberValidation():void {
     const orderNumber = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="product-name"]'));

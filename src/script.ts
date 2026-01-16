@@ -7,7 +7,6 @@ import * as formManagement from './utils/formManagement.js';
 import * as stepperNav from './utils/stepperNavigation.js';
 import * as tableRendering from './utils/tableRendering.js';
 import * as modalHandling from './utils/modalHandling.js';
-import * as formValidation from './utils/formValidation.js';
 import * as tableActions from './utils/tableActions.js';
 import { RatingMap } from './types/ratings';
 import { RecordData } from './types/record';
@@ -30,6 +29,7 @@ validation.setupOrderNumberValidation();
 validation.setupDateValidation();
 ratings.setupStarRatings(ratingData);
 conditional.setupConditionalFields(ratingData);
+validation.radioValidation();
 stepperNav.initializeStepper(stepperState, ratingData);
 
 function saveRecords(): void {
@@ -95,17 +95,9 @@ tableActions.setupTableActionHandlers({
     }
 });
 
-//Radio Validation
 
-requiredRadios.forEach(name => {
-    const radios = document.querySelectorAll(`input[name="${name}"]`);
-    const container = document.querySelector(`[data-radio="${name}"]`);
-    radios.forEach(radio => {
-        radio.addEventListener("change", () => {
-            container?.classList.remove("invalid");
-        });
-    });
-});
+
+
 
 // Modal Handler
 modalHandling.setupModalHandlers();
