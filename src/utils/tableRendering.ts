@@ -1,8 +1,11 @@
 // Table rendering utilities
 
+import { RatingMap } from "../types/ratings";
+import { RecordData } from "../types/record";
 
-export function renderMainTable(records) {
-    const tbody = document.querySelector("#main-table tbody");
+
+export function renderMainTable(records:RecordData[]):void {
+    const tbody = document.querySelector<HTMLTableSectionElement>("#main-table tbody")!;
     tbody.innerHTML = "";
     
     records.forEach((item, index) => {
@@ -26,9 +29,9 @@ export function renderMainTable(records) {
 }
 
 
-export function renderRatingsTable(ratings) {
-    const section = document.getElementById("ratings-section");
-    const tbody = document.querySelector("#ratings-table tbody");
+export function renderRatingsTable(ratings:RatingMap) {
+    const section = document.getElementById("ratings-section") as HTMLElement;
+    const tbody = document.querySelector<HTMLTableSectionElement>("#ratings-table tbody")!;
     tbody.innerHTML = "";
     
     Object.entries(ratings).forEach(([category, value]) => {

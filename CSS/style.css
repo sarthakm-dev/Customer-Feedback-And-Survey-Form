@@ -578,6 +578,8 @@ hr {
 
 .table-actions button {
     background-color: white;
+    padding: 3px 5px;
+    margin-right: 0;
 }
 .view-btn {
     background: var(--primary-500);

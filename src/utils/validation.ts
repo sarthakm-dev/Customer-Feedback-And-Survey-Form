@@ -2,43 +2,43 @@
 const emailRegex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
 
-export function formatRequired(input) {
+export function formatRequired(input:HTMLInputElement):boolean {
     const order_id = input.value.trim();
     const prefix = order_id.slice(0, 3);
     const middle = order_id[3];
-    const suffix = order_id.slice(4);
+    const suffix = Number(order_id.slice(4));
 
     if (order_id.length !== 10 || prefix !== "ORD" || isNaN(suffix) || middle !== "-") {
         input.classList.add("invalid");
-        input.nextElementSibling.style.visibility = "visible";
+        (input.nextElementSibling as HTMLElement).style.visibility = "visible";
         return false;
     } else {
         input.classList.remove("invalid");
-        input.nextElementSibling.style.visibility = "hidden";
+        (input.nextElementSibling as HTMLElement).style.visibility = "hidden";
         return true;
     }
 }
 
 
-export function isValidEmail(email) {
+export function isValidEmail(email:string):boolean {
     return emailRegex.test(email);
 }
 
 
-export function validateRequired(input) {
+export function validateRequired(input:HTMLInputElement):boolean {
     if (!isValidEmail(input.value.trim())) {
         input.classList.add('invalid');
-        input.nextElementSibling.style.visibility = "visible";
+        (input.nextElementSibling as HTMLElement).style.visibility = "visible";
         return false;
     } else {
         input.classList.remove('invalid');
-        input.nextElementSibling.style.visibility = "hidden";
+        (input.nextElementSibling as HTMLElement).style.visibility = "hidden";
         return true;
     }
 }
 
-export function setupEmailValidation() {
-    const email = document.querySelectorAll('input[name="email"]');
+export function setupEmailValidation():void {
+    const email = document.querySelectorAll<HTMLInputElement>('input[name="email"]');
     email.forEach(input => {
         input.addEventListener('blur', () => {
             validateRequired(input);
@@ -52,8 +52,8 @@ export function setupEmailValidation() {
 }
 
 
-export function setupOrderNumberValidation() {
-    const orderNumber = document.querySelectorAll('input[name="product-name"]');
+export function setupOrderNumberValidation():void {
+    const orderNumber = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="product-name"]'));
     orderNumber.forEach(input => {
         input.addEventListener('blur', () => {
             formatRequired(input);
@@ -64,48 +64,49 @@ export function setupOrderNumberValidation() {
     });
 }
 
-export function validatePurchasedate(){
-    const dateInput = document.querySelector(`input[name="purchase-date"]`);
+export function validatePurchasedate():boolean{
+    const dateInput = document.querySelector<HTMLInputElement>(`input[name="purchase-date"]`);
     if(!dateInput) return true;
     if(!dateInput.value){
         dateInput.classList.add("invalid");
-        dateInput.nextElementSibling.style.visibility = "visible";
+        (dateInput.nextElementSibling as HTMLElement).style.visibility = "visible";
         return false;
     }else{
         dateInput.classList.remove("invalid");
-        dateInput.nextElementSibling.style.visibility="hidden";
+        (dateInput.nextElementSibling as HTMLElement).style.visibility="hidden";
         return true;
     }
 }
 
-export function setupDateValidation() {
-    const dateInput = document.getElementById("purchase-date");
+export function setupDateValidation():void {
+    const dateInput = document.getElementById("purchase-date") as HTMLInputElement | null;
+    if(!dateInput) return;
     dateInput.max = new Date().toISOString().split("T")[0];
     
     dateInput.addEventListener("blur", () => {
         if (dateInput.value.trim()) {
             dateInput.classList.remove("invalid");
-            dateInput.nextElementSibling.style.visibility = "hidden";
+            (dateInput.nextElementSibling as HTMLElement).style.visibility = "hidden";
         }else{
             dateInput.classList.add("invalid");
-            dateInput.nextElementSibling.style.visibility = "visible";
+            (dateInput.nextElementSibling as HTMLElement).style.visibility = "visible";
         }
     });
     
     dateInput.addEventListener("input", () => {
         if (dateInput.value.trim()) {
             dateInput.classList.remove("invalid");
-            dateInput.nextElementSibling.style.visibility = "hidden";
+            (dateInput.nextElementSibling as HTMLElement).style.visibility = "hidden";
         }else{
             dateInput.classList.add("invalid");
-            dateInput.nextElementSibling.style.visibility = "visible";
+            (dateInput.nextElementSibling as HTMLElement).style.visibility = "visible";
         }
     });
 }
 
 
-export function scrollToFirstInvalid() {
-    const firstInvalid = document.querySelector('.invalid input, .invalid textarea, .rating-group.invalid, .radio-container.invalid');
+export function scrollToFirstInvalid():void {
+    const firstInvalid = document.querySelector<HTMLElement>('.invalid input, .invalid textarea, .rating-group.invalid, .radio-container.invalid');
     if (!firstInvalid) return;
     firstInvalid.scrollIntoView({
         behavior: "smooth",

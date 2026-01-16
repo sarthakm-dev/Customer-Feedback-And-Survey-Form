@@ -1,9 +1,11 @@
 // Modal handling utilities
 
-export function showRatingsModal(record) {
-    document.getElementById("modal-title").innerText = "Ratings Details";
+import { RecordData } from "../types/record";
 
-    const tbody = document.getElementById("ratings-table-body");
+export function showRatingsModal(record:RecordData):void {
+    (document.getElementById("modal-title") as HTMLElement).innerText = "Ratings Details";
+
+    const tbody = document.getElementById("ratings-table-body") as HTMLTableSectionElement;
     tbody.innerHTML = "";
 
     Object.entries(record.ratings).forEach(([category, value]) => {
@@ -20,7 +22,7 @@ export function showRatingsModal(record) {
         tbody.appendChild(tr);
     });
 
-    const optionalDiv = document.getElementById("optional-text-modal");
+    const optionalDiv = document.getElementById("optional-text-modal") as HTMLElement;
     optionalDiv.innerHTML = `
         <div class="optional-row">
             <strong>What did you like:</strong>
@@ -46,43 +48,46 @@ export function showRatingsModal(record) {
     openModal();
 }
 
-export function openModal() {
+export function openModal():void {
     const modalOverlay = document.getElementById("modal-overlay");
     if (modalOverlay) modalOverlay.classList.remove("hidden");
 }
 
 
-export function closeModal() {
+export function closeModal():void {
     const modalOverlay = document.getElementById("modal-overlay");
     if (modalOverlay) modalOverlay.classList.add("hidden");
 }
 
-export function openSuccessModal(message="Form submitted successfully"){
-    const modal = document.getElementById("success-modal-overlay");
-    const text = modal.querySelector(".success-text");
+export function openSuccessModal(message="Form submitted successfully"):void{
+    const modal = document.getElementById("success-modal-overlay") as HTMLElement;
+    const text = modal.querySelector<HTMLElement>(".success-text");
+    if(!text) return;
     text.textContent = message;
     modal.classList.remove("hidden");
 }
 
-export function closeSuccessModal(){
-    document.getElementById("success-modal-overlay").classList.add("hidden");
+export function closeSuccessModal():void{
+    (document.getElementById("success-modal-overlay") as HTMLElement).classList.add("hidden");
 }
 
-export function setupSuccessModalHandlers(){
+export function setupSuccessModalHandlers():void{
     const okBtn = document.getElementById("success-ok");
     okBtn?.addEventListener("click",closeSuccessModal);
 }
 export function setupModalHandlers() {
-    const modalClose = document.getElementById("modal-close");
-    const modalOverlay = document.getElementById("modal-overlay");
+    const modalClose = document.getElementById("modal-close") as HTMLElement;
+    const modalOverlay = document.getElementById("modal-overlay") as HTMLElement;
 
     if (modalClose) {
         modalClose.addEventListener("click", closeModal);
     }
 
     if (modalOverlay) {
-        modalOverlay.addEventListener("click", (e) => {
-            if (e.target.id === "modal-overlay") {
+        modalOverlay.addEventListener("click", (e:MouseEvent) => {
+            const target = e.target as HTMLElement | null;
+            if(!target) return;
+            if (target.id === "modal-overlay") {
                 closeModal();
             }
         });
@@ -95,20 +100,20 @@ export function setupModalHandlers() {
     });
 }
 
-export function openDeleteModal(index) {
+export function openDeleteModal(index:number):number {
     const deleteOverlay = document.getElementById("delete-modal-overlay");
     if (deleteOverlay) deleteOverlay.classList.remove("hidden");
     return index;
 }
 
 
-export function closeDeleteModal() {
+export function closeDeleteModal():void {
     const deleteOverlay = document.getElementById("delete-modal-overlay");
     if (deleteOverlay) deleteOverlay.classList.add("hidden");
 }
 
 
-export function setupDeleteModalHandlers(onConfirmDelete) {
+export function setupDeleteModalHandlers(onConfirmDelete:()=>void):void {
     const cancelBtn = document.getElementById("cancel-delete");
     const closeBtn = document.getElementById("close-delete-modal");
     const confirmBtn = document.getElementById("confirm-delete");

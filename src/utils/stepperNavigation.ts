@@ -3,24 +3,29 @@
 import { validateCurrentStep, validateRadios } from "./formValidation.js";
 import * as conditional from "./conditional.js";
 import { validatePurchasedate } from "./validation.js";
-let sections = [];
-let steps = [];
-let nextBtn = null;
-let prevBtn = null;
-let submitBtn = null;
+import { stepperState } from "../types/stepper";
+import { RatingMap } from "../types/ratings";
+
+let sections: HTMLElement[] = [];
+let steps: HTMLElement[] = [];
+let nextBtn: HTMLButtonElement | null = null;
+let prevBtn: HTMLButtonElement | null = null;
+let submitBtn: HTMLButtonElement | null = null;
 const REQUIRED_RADIOS = ["method", "package-content-experience", "support-contacted", "recommendation-experience"];
-const STEP_RADIOS = {
+
+const STEP_RADIOS: Record<number, string[]> = {
     0: ["method"],
     2: ["package-content-experience"],
     3: ["support-contacted", "recommendation-experience"]
 };
-export function initializeStepper(state, ratings) {
-    sections = document.querySelectorAll(".rating-section");
-    steps = document.querySelectorAll(".step");
 
-    nextBtn = document.getElementById("nextBtn");
-    prevBtn = document.getElementById("prevBtn");
-    submitBtn = document.getElementById("submit");
+export function initializeStepper(state: stepperState, ratings: RatingMap):void {
+    sections = Array.from(document.querySelectorAll<HTMLElement>(".rating-section"));
+    steps = Array.from(document.querySelectorAll<HTMLElement>(".step"));
+
+    nextBtn = document.getElementById("nextBtn") as HTMLButtonElement | null;
+    prevBtn = document.getElementById("prevBtn") as HTMLButtonElement | null;
+    submitBtn = document.getElementById("submit") as HTMLButtonElement | null;
 
     if (!nextBtn || !prevBtn) {
         console.error("Stepper buttons not found");
@@ -30,12 +35,14 @@ export function initializeStepper(state, ratings) {
     updateStepUI(state);
 
     nextBtn.addEventListener("click", () => {
-        const supportContacted = conditional.getSupportContactedStatus();
-
+        const supportContacted = conditional.getSupportContactedStatus() ?? "";
         let isFormValid = true;
+        if(state.currentStep === 3 && supportContacted === null){
+            isFormValid = false;
+        }
 
-    
         const radiosToValidate = STEP_RADIOS[state.currentStep] || [];
+        console.log(radiosToValidate);
         const radiosValid = validateRadios(radiosToValidate);
         if (!radiosValid) isFormValid = false;
 
@@ -47,9 +54,7 @@ export function initializeStepper(state, ratings) {
         if (!stepValid) isFormValid = false;
 
         if (!isFormValid) {
-            document
-                .querySelector(".invalid")
-                ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            document.querySelector(".invalid")?.scrollIntoView({ behavior: "smooth", block: "center" });
             return;
         }
 
@@ -68,7 +73,7 @@ export function initializeStepper(state, ratings) {
 }
 
 
-function updateStepUI(state) {
+function updateStepUI(state: stepperState):void {
     sections.forEach((section, index) => {
         section.classList.toggle("active", index === state.currentStep);
     });
@@ -77,24 +82,26 @@ function updateStepUI(state) {
         step.classList.toggle("active", index === state.currentStep);
     });
 
-
+    if (!prevBtn) return;
     prevBtn.disabled = state.currentStep === 0;
 
     if (state.currentStep === sections.length - 1) {
+        if (!nextBtn) return;
         nextBtn.style.display = "none";
         if (submitBtn) submitBtn.style.display = "inline-block";
     } else {
+        if (!nextBtn) return;
         nextBtn.style.display = "inline-block";
         if (submitBtn) submitBtn.style.display = "none";
     }
 }
 
 
-export function getCurrentStep(state) {
+export function getCurrentStep(state: stepperState):number {
     return state.currentStep;
 }
 
-export function setCurrentStep(state, step) {
+export function setCurrentStep(state: stepperState, step: number):void {
     state.currentStep = step;
     updateStepUI(state);
 }
