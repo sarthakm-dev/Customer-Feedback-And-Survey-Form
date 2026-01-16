@@ -14,7 +14,6 @@ import { RecordData } from './types/record';
 import { stepperState } from './types/stepper';
 
 // variables
-
 const form = document.getElementById("form-container") as HTMLFormElement;
 let records: RecordData[] = storage.getRecords();
 let editIndex: number | null = null;
