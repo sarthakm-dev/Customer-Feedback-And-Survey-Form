@@ -32,7 +32,7 @@ ratings.setupStarRatings(ratingData);
 conditional.setupConditionalFields(ratingData);
 stepperNav.initializeStepper(stepperState, ratingData);
 
-function saveRecords():void  {
+function saveRecords(): void {
     storage.saveToLocalStorage(records);
 }
 
@@ -51,7 +51,7 @@ function handleDeleteConfirm(): void {
 modalHandling.setupDeleteModalHandlers(handleDeleteConfirm);
 
 // Update to Submit button
-function resetEditMode():void {
+function resetEditMode(): void {
     editIndex = null;
     const submitBtn = document.getElementById("submit");
     if (submitBtn) {
@@ -60,7 +60,7 @@ function resetEditMode():void {
 }
 
 //Duplicate Check
-function isDuplicateRecord(records:RecordData[], newRecord:RecordData, editIndex:number|null):boolean {
+function isDuplicateRecord(records: RecordData[], newRecord: RecordData, editIndex: number | null): boolean {
     return records.some((record, index) => {
 
         if (editIndex !== null && index === editIndex) {
@@ -73,10 +73,10 @@ function isDuplicateRecord(records:RecordData[], newRecord:RecordData, editIndex
 
 //Table Action
 tableActions.setupTableActionHandlers({
-    onView: (index:number) => {
+    onView: (index: number) => {
         modalHandling.showRatingsModal(records[index]);
     },
-    onEdit: (index:number) => {
+    onEdit: (index: number) => {
         formManagement.populateForm(records[index], ratingData, form);
         editIndex = index;
         const submitBtn = document.getElementById("submit");
@@ -89,7 +89,7 @@ tableActions.setupTableActionHandlers({
         }
         window.scrollTo({ top: 0, behavior: "smooth" });
     },
-    onDelete: (index:number) => {
+    onDelete: (index: number) => {
         deleteIndex = index;
         deleteIndex = modalHandling.openDeleteModal(index);
     }
@@ -128,27 +128,27 @@ form.addEventListener("submit", e => {
     if (!validation.validateRequired(email_input)) {
         email_input.classList.add("invalid");
         valid = false;
-        if(email_input.nextElementSibling){
+        if (email_input.nextElementSibling) {
             (email_input.nextElementSibling as HTMLElement).style.visibility = "visible";
         }
     } else {
         email_input.classList.remove("invalid");
-        if(email_input.nextElementSibling){
+        if (email_input.nextElementSibling) {
             (email_input.nextElementSibling as HTMLElement).style.visibility = "hidden";
         }
-     
+
     }
     const date_input = document.querySelector<HTMLInputElement>('input[name="purchase-date"]')!;
     if (!date_input.value.trim()) {
         date_input.classList.add("invalid");
         valid = false;
-        if(date_input.nextElementSibling){
+        if (date_input.nextElementSibling) {
             (date_input.nextElementSibling as HTMLElement).style.visibility = "visible";
         }
-        
+
     } else {
         date_input.classList.remove("invalid");
-        if(date_input.nextElementSibling){
+        if (date_input.nextElementSibling) {
             (date_input.nextElementSibling as HTMLElement).style.visibility = "hidden";
         }
     }
@@ -167,9 +167,9 @@ form.addEventListener("submit", e => {
     // Conditional validation
     const ratingGroups = document.querySelectorAll<HTMLElement>(".rating-group");
     ratingGroups.forEach(group => {
-        
+
         const category = group.dataset.category;
-        if(!category) return;
+        if (!category) return;
         const isConditional = group.dataset.conditional === "support-yes";
         if (ratingData[category] === 0 && (!isConditional || supportContacted === "yes")) {
             group.classList.add("invalid");
@@ -187,41 +187,42 @@ form.addEventListener("submit", e => {
 
     // Create form data
     const formData = new FormData(form);
-    function getString(fd:FormData,key:string):string | null{
+    function getString(fd: FormData, key: string): string | null {
         const value = fd.get(key);
         return typeof value === "string" ? value : null;
     }
     const display = {
-        orderNumber: getString(formData,"product-name"),
-        email: getString(formData,"email"),
-        purchaseDate: getString(formData,"purchase-date"),
-        shoppingMethod: getString(formData,"method"),
-        packageContentMatch: getString(formData,"package-content-experience"),
-        supportContacted: getString(formData,"support-contacted"),
-        recommendToFriends: getString(formData,"recommendation-experience"),
-        whatDidYouLike: getString(formData,"what-did-you-like"),
-        whatToImprove: getString(formData,"what-to-improve"),
-        additionalComments: getString(formData,"additional-comments"),
-        participateInMonthlyReview: getString(formData,"review") === "Yes" ? "yes" : "no",
+        orderNumber: getString(formData, "product-name"),
+        email: getString(formData, "email"),
+        purchaseDate: getString(formData, "purchase-date"),
+        shoppingMethod: getString(formData, "method"),
+        packageContentMatch: getString(formData, "package-content-experience"),
+        supportContacted: getString(formData, "support-contacted"),
+        recommendToFriends: getString(formData, "recommendation-experience"),
+        whatDidYouLike: getString(formData, "what-did-you-like"),
+        whatToImprove: getString(formData, "what-to-improve"),
+        additionalComments: getString(formData, "additional-comments"),
+        participateInMonthlyReview: getString(formData, "review") === "Yes" ? "yes" : "no",
         ratings: { ...ratingData }
     };
+    if (isDuplicateRecord(records, display, editIndex)) {
+        alert("Feedback already exists for this OrderNumber and Email");
+        return;
+    }
 
     console.log("FORM SUBMITTED:", display);
     let successMessage;
-    if (editIndex == null) {
-        if (isDuplicateRecord(records, display, editIndex)) {
-            alert("Feedback already exists for this OrderNumber and Email");
-            return;
-        }
+    if (editIndex === null) {
+
         records.push(display);
         successMessage = "Form Submitted Successfully"
     } else {
         records[editIndex] = display;
-        editIndex = null;
-        resetEditMode();
+        
         successMessage = "Form Updated Successfully"
     }
-
+    editIndex = null;
+    resetEditMode();
     saveRecords();
     tableRendering.renderMainTable(records);
     stepperNav.setCurrentStep(stepperState, 0);
