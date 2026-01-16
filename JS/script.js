@@ -188,21 +188,22 @@ form.addEventListener("submit", e => {
     };
 
     console.log("FORM SUBMITTED:", display);
+    if (isDuplicateRecord(records, display, editIndex)) {
+        alert("Feedback already exists for this OrderNumber and Email");
+        return;
+    }
     let successMessage;
     if (editIndex == null) {
-        if (isDuplicateRecord(records, display, editIndex)) {
-            alert("Feedback already exists for this OrderNumber and Email");
-            return;
-        }
+
         records.push(display);
-        successMessage="Form Submitted Successfully"
+        successMessage = "Form Submitted Successfully"
     } else {
         records[editIndex] = display;
-        editIndex = null;
-        resetEditMode();
-        successMessage="Form Updated Successfully"
+        
+        successMessage = "Form Updated Successfully"
     }
-
+    editIndex = null;
+    resetEditMode();
     saveRecords();
     tableRendering.renderMainTable(records);
     stepperNav.setCurrentStep(stepperState, 0);
